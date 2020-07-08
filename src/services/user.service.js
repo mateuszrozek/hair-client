@@ -1,7 +1,7 @@
 import axios from 'axios';
 import authHeader from './auth-header';
 
-const API_URL = 'http://localhost:8666/api/res/';
+const API_URL = 'https://hair-api-x.herokuapp.com/api/res/';
 
 class UserService {
 

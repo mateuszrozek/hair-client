@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8666/api/res/";
+const API_URL = "https://hair-api-x.herokuapp.com/api/res/";
 
 class ProductsService {
 
