@@ -13,6 +13,8 @@ import BoardUser from "./components/board-user.component";
 import BoardModerator from "./components/board-moderator.component";
 import BoardAdmin from "./components/board-admin.component";
 
+import Products from "./components/products.component";
+
 class App extends Component {
 
   constructor(props) {
@@ -50,12 +52,17 @@ class App extends Component {
         <div>
           <nav className="navbar navbar-expand navbar-dark bg-dark">
             <Link to={"/"} className="navbar-brand">
-              hair
+              H A I R - your hair with our care
             </Link>
             <div className="navbar-nav mr-auto">
               <li className="nav-item">
                 <Link to={"/home"} className="nav-link">
                   Home
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to={"/products"} className="nav-link">
+                  Products
                 </Link>
               </li>
 
@@ -117,6 +124,7 @@ class App extends Component {
           <div className="container mt-3">
             <Switch>
               <Route exact path={["/", "/home"]} component={Home} />
+              <Route exact path={["/products"]} component={Products} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/profile" component={Profile} />
