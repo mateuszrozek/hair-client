@@ -3,18 +3,9 @@ import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
+import * as Validations from "../utils/validations.utils"
 
 import AuthService from "../services/auth.service";
-
-const required = value => {
-    if (!value) {
-        return (
-            <div className="alert alert-danger" role="alert">
-                This field is required!
-            </div>
-        );
-    }
-};
 
 const email = value => {
     if (!isEmail(value)) {
@@ -147,7 +138,7 @@ export default class Register extends Component {
                                         name="username"
                                         value={this.state.username}
                                         onChange={this.onChangeUsername}
-                                        validations={[required, vusername]}
+                                        validations={[Validations.required, vusername]}
                                     />
                                 </div>
 
@@ -159,7 +150,7 @@ export default class Register extends Component {
                                         name="email"
                                         value={this.state.email}
                                         onChange={this.onChangeEmail}
-                                        validations={[required, email]}
+                                        validations={[Validations.required, email]}
                                     />
                                 </div>
 
@@ -171,7 +162,7 @@ export default class Register extends Component {
                                         name="password"
                                         value={this.state.password}
                                         onChange={this.onChangePassword}
-                                        validations={[required, vpassword]}
+                                        validations={[Validations.required, vpassword]}
                                     />
                                 </div>
 
