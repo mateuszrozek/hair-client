@@ -9,6 +9,20 @@ class ProductsService {
             .get(API_URL + "products");
     }
 
+    product(product) {
+        console.log(product + ": axios");
+        return axios
+            .post(API_URL + "product", product)
+            .then(
+                response => {
+                    console.log(response.data + ": response.data")
+                    return response.data;
+                },
+                error => {
+                    console.log(error)
+                }
+        );
+    }
 }
 
 export default new ProductsService();
