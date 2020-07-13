@@ -1,19 +1,24 @@
 import React, { Component } from 'react';
-import AuthService from "./../services/auth.service";
-import ProductsService from "./../services/products.service";
+import AuthService from "../../services/auth.service";
+import ProductsService from "../../services/products.service";
 import Product from "./product.component";
+import AddProductModalContainer from "./addProductModalContainer.component";
+import ProductModal from "./addProductModal.component";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 
 export default class Products extends Component {
     constructor(props) {
         super(props);
         this.renderProducts = this.renderProducts.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
             showModeratorBoard: false,
             showAdminBoard: false,
             currentUser: undefined,
-            products: []
+            products: [],
+            showModal: false
         };
     }
 
@@ -51,9 +56,15 @@ export default class Products extends Component {
         }
     }
 
+    onSubmit() {
+        this.setState({
+            showModal: false
+        })
+    }
+
     render() {
 
-        const { currentUser } = this.state;
+        const { currentUser} = this.state;
 
         return (
             <div className="container">
@@ -66,7 +77,8 @@ export default class Products extends Component {
                         </div>
                         <div class="col-sm-2">
                             {currentUser && (
-                                <button className="btn btn-secondary">
+                                <button
+                                    className="btn btn-secondary">
                                     <span>Add product</span>
                                 </button>
                             )}
@@ -80,4 +92,3 @@ export default class Products extends Component {
         );
     }
 }
-

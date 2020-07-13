@@ -13,7 +13,7 @@ import BoardUser from "./components/board-user.component";
 import BoardModerator from "./components/board-moderator.component";
 import BoardAdmin from "./components/board-admin.component";
 
-import Products from "./components/products.component";
+import Products from "./components/products/products.component";
 
 class App extends Component {
 
