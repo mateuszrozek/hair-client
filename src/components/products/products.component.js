@@ -3,6 +3,7 @@ import AuthService from "../../services/auth.service";
 import ProductsService from "../../services/products.service";
 import Product from "./product.component";
 import AddProductModal from './addProductModal.component';
+import { CardDeck } from 'reactstrap';
 
 
 export default class Products extends Component {
@@ -41,11 +42,13 @@ export default class Products extends Component {
     renderProducts() {
         if (this.state.products && this.state.products.length > 0) {
             return (
-                this.state.products.map((product) => (
-                    <span className="indent" key={product.id}>
-                        <Product product={product} />
-                    </span>
-                ))
+                <CardDeck>
+                    {this.state.products.map((product) => (
+                        <span className="indent" key={product.id}>
+                            <Product product={product} />
+                        </span>
+                    ))}
+                </CardDeck>
             );
         }
         else {

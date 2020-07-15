@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Card from 'react-bootstrap/Card';
 
 export default class Product extends Component {
 
@@ -7,16 +8,23 @@ export default class Product extends Component {
 
 
         this.state = {
-            
+
         };
     }
 
 
     render() {
         return (
-            <div>
-                {this.props.product.title + ": " + this.props.product.description}
-            </div>
+            <Card style={{ margin: 5, padding: 2 }}>
+                <Card.Body style={{ margin: 5, padding: 0 }}>
+                    <Card.Title>{this.props.product.title}</Card.Title>
+                    <Card.Subtitle className="mb-2 text-muted">Card Subtitle, categories</Card.Subtitle>
+                    <Card.Text>
+                        {this.props.product.description}
+                    </Card.Text>
+                    <Card.Footer>Modified on 15.07.20</Card.Footer>
+                </Card.Body>
+            </Card>
         )
     }
 }
